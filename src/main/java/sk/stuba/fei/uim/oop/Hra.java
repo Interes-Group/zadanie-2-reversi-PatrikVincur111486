@@ -137,7 +137,6 @@ public class Hra implements KeyListener, MouseListener, MouseMotionListener, Act
         for(int k=0;k<8;k++){
             List<Policko> polickaVSmere=pozriNaStranu(kliknutePolicko,poleSmerov[k],policka, hracNaRade);
             int p=0;
-            if(polickaVSmere.get(0).getHrac()!=hracNaRade && polickaVSmere.get(1).getHrac()==0) break;
             for(Policko pole:polickaVSmere){
                 if(pole.getHrac()!=hracNaRade && pole.getHrac()!=0){
                     p++;
