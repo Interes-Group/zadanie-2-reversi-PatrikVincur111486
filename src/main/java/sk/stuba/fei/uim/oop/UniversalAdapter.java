@@ -46,5 +46,4 @@ public class UniversalAdapter implements KeyListener, MouseMotionListener, Mouse
     @Override
     public void mouseMoved(MouseEvent e) {
     }
-
 }

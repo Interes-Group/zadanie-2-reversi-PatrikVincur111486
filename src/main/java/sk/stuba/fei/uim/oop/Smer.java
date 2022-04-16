@@ -4,5 +4,9 @@ public enum Smer {
     HORE,
     DOLE,
     VLAVO,
-    VPRAVO
+    VPRAVO,
+    HOREVPRAVO,
+    HOREVLAVO,
+    DOLEVPRAVO,
+    DOLEVLAVO
 }
