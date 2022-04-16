@@ -132,30 +132,27 @@ public class Hra implements KeyListener, MouseListener, MouseMotionListener, Act
         }
 
 
-
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        /*Policko kliknutePolicko= ((Policko) e.getSource());
+    public void vezmiKamene(Policko kliknutePolicko){
         Smer[] poleSmerov= new Smer[]{Smer.HORE, Smer.DOLE, Smer.VLAVO, Smer.VPRAVO, Smer.HOREVPRAVO, Smer.DOLEVPRAVO,Smer.DOLEVLAVO, Smer.HOREVLAVO};
         for(int k=0;k<8;k++){
             List<Policko> polickaVSmere=pozriNaStranu(kliknutePolicko,poleSmerov[k],policka, hracNaRade);
-            int i=0;
-
-            while(polickaVSmere.get(i).getHrac()!=0 && polickaVSmere.get(i).getHrac()!=hracNaRade){
-                i++;
-                if(i>=polickaVSmere.size()){
-                    i--;
-                    break;
+            int p=0;
+            if(polickaVSmere.get(0).getHrac()!=hracNaRade && polickaVSmere.get(1).getHrac()==0) break;
+            for(Policko pole:polickaVSmere){
+                if(pole.getHrac()!=hracNaRade && pole.getHrac()!=0){
+                    p++;
                 }
             }
-            if(i!=0){i--;}
-            while(i>0 || polickaVSmere.get(0).getHrac()!=0 && polickaVSmere.get(0).getHrac()!=hracNaRade){
-                polickaVSmere.get(i).setHrac(hracNaRade);
-                polickaVSmere.get(i).repaint();
-                i--;
+        for(int i=0;i<p;i++){
+            polickaVSmere.get(i).setHrac(hracNaRade);
+            polickaVSmere.get(i).repaint();
             }
-        }*/
+        }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        vezmiKamene(((Policko) e.getSource()));
         if(((Policko) e.getSource()).viemZahrat && ((Policko) e.getSource()).hrac==0 ){
             ((Policko) e.getSource()).setHrac(hracNaRade);
             if(hracNaRade==1) {
