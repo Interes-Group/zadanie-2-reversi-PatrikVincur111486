@@ -1,31 +1,31 @@
 package sk.stuba.fei.uim.oop;
 
+import lombok.Getter;
 import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Policko extends JPanel {
-    @Setter
+    @Setter @Getter
     int hrac;
+    @Getter
     int riadok;
+    @Getter
     int stlpec;
+    @Setter
     boolean viemZahrat;
 
 
-    public Policko(int hrac, int riadok, int stlpec, Hra hra) {
+    public Policko(int riadok, int stlpec, Hra hra) {
         this.riadok=riadok;
         this.stlpec=stlpec;
-        this.hrac=hrac;
+        this.hrac=0;
         this.viemZahrat=false;
 
         this.setBackground(new Color(0, 128, 0));
         this.addMouseListener(hra);
         this.addMouseMotionListener( hra);
-    }
-
-    public void nastavHraca(int hracNarade){
-        this.hrac=hracNarade;
     }
 
     @Override

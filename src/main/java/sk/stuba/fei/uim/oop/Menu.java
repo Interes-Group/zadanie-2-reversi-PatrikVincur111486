@@ -6,15 +6,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu extends JPanel implements ActionListener {
-
-    public Menu(int velkostHracejPlochy) {
-        vytvorMenu(velkostHracejPlochy);
+    private JComboBox<Integer> vyberVelkostiPlochy;
+    private Hra hra;
+    public Menu(int velkostHracejPlochy, Hra hra) {
+        Integer[] poleVelkostiHracejPlochy={6,8,10,12};
+        vyberVelkostiPlochy = new JComboBox(poleVelkostiHracejPlochy);
+        this.hra = hra;
+        vytvorMenu(velkostHracejPlochy, hra);
     }
 
-    public void vytvorMenu(int velkostHracejPlochy){
+    public void vytvorMenu(int velkostHracejPlochy, Hra hra){
         this.setLayout(new FlowLayout());
-        String[] poleVelkostiHracejPlochy={"6","8","10","12"};
-        JComboBox vyberVelkostiPlochy = new JComboBox(poleVelkostiHracejPlochy);
+        vyberVelkostiPlochy.addActionListener(this);
         vyberVelkostiPlochy.setFocusable(false);
         this.add(vyberVelkostiPlochy);
         JButton reset = new JButton("Reset");
@@ -26,9 +29,9 @@ public class Menu extends JPanel implements ActionListener {
         JLabel hracNaRade = new JLabel("Hrac 1 - Biely");
         this.add(hracNaRade);
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("nefunguje mi reset");         ///dorobit
+        int novaVelkostPola= ((Integer) vyberVelkostiPlochy.getSelectedItem());
+        System.out.println("nefunfuje mi reset :(");
     }
 }
